@@ -32,7 +32,7 @@ interface ApiService {
     fun readAllArticle(@Header("access-token") token: String?): Call<ArrayList<ArticleAllData>>
 
     @GET("/admin/member")
-    fun getMemberList(@Header("access-token") token: String?): Call<ArrayList<MemberData>>
+    fun getMemberList(@Header("access-token") token: String?): Call<MembersData>
 
     @POST("")
 

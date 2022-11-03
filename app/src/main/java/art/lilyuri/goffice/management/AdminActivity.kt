@@ -3,6 +3,7 @@ package art.lilyuri.goffice.management
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import art.lilyuri.goffice.data.MemberData
+import art.lilyuri.goffice.data.MembersData
 import art.lilyuri.goffice.databinding.TimeListBinding
 import art.lilyuri.goffice.retrofit.RetrofitAPI
 import art.lilyuri.goffice.sharedpreferences.SharedPreferences
@@ -23,12 +24,13 @@ class AdminActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val call = RetrofitAPI.getApiService().getMemberList(SharedPreferences.prefs.getString("token", ""))
-        call.enqueue(object : Callback<ArrayList<MemberData>> {
-            override fun onResponse(call: Call<ArrayList<MemberData>>, response: Response<ArrayList<MemberData>>) {
-                println(response.body().toString())
+        call.enqueue(object : Callback<MembersData> {
+            override fun onResponse(call: Call<MembersData>, response: Response<MembersData>) {
+                println(response.body()!!.members.toString())
+
             }
 
-            override fun onFailure(call: Call<ArrayList<MemberData>>, t: Throwable) {
+            override fun onFailure(call: Call<MembersData>, t: Throwable) {
                 println(t.message)
             }
 
