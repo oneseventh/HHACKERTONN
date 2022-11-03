@@ -33,6 +33,9 @@
         <activity android:name=".auth.LoginActivity">
 
         </activity>
+        <activity android:name=".auth.RegisterActivity">
+
+        </activity>
     </application>
 
 </manifest>
