@@ -2,12 +2,14 @@ package art.lilyuri.goffice.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import art.lilyuri.goffice.R
+import art.lilyuri.goffice.article.ArticleViewActivity
 
 class ArticleAdapter(private val context: Context) : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
 
@@ -35,7 +37,18 @@ class ArticleAdapter(private val context: Context) : RecyclerView.Adapter<Articl
             author.text = "\uD83D\uDC68 ${item.articleAuthor}"
             comment.text = "\uD83D\uDCAC 댓글 ${item.articleComment}개"
 //            Glide.with(itemView).load(item.img).into(imgProfile)
-
+            itemView.setOnClickListener {
+                Intent(context, ArticleViewActivity::class.java).apply {
+                    putExtra("idx", item.idx)
+                    putExtra("name", item.articleName)
+                    putExtra("comment", item.articleComment)
+                    putExtra("content", item.articleContent)
+                    putExtra("category", item.articleCategory)
+                    putExtra("date", item.articleDate)
+                    putExtra("author", item.articleAuthor)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }.run { context.startActivity(this) }
+            }
         }
     }
 

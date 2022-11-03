@@ -1,4 +1,4 @@
-package art.lilyuri.goffice.Admin
+package art.lilyuri.goffice.management
 
 data class TimeListData(
     val userName : String,

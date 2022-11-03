@@ -3,14 +3,13 @@ package art.lilyuri.goffice
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import art.lilyuri.goffice.article.ArticleListAllActivity
-import art.lilyuri.goffice.databinding.ActivityBoardlistBinding
 import art.lilyuri.goffice.databinding.ActivityMainBinding
+import art.lilyuri.goffice.management.TimeList
 import art.lilyuri.goffice.utils.ArticleAdapter
 import art.lilyuri.goffice.utils.ArticleData
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
@@ -37,19 +36,21 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener {
         binding.mainmain.istool.toolMenu.setOnClickListener {
             binding.mainDrawerLayout.openDrawer(GravityCompat.END)
         }
+
+
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val intent = Intent(this, ArticleListAllActivity::class.java)
         when(item.itemId){
             R.id.item1-> Toast.makeText(this,"account clicked",Toast.LENGTH_SHORT).show()
-            R.id.item2-> Toast.makeText(this,"item2 clicked",Toast.LENGTH_SHORT).show()
-            R.id.item3-> Toast.makeText(this,"item3 clicked",Toast.LENGTH_SHORT).show()
+//            R.id.item2-> Chuno().test(this)
+            R.id.item3-> startActivity(Intent(this, TimeList::class.java))
             R.id.item5 -> startActivity(intent)
         }
         return false
     }
-
 
     override fun onBackPressed() { //뒤로가기 처리
         if(binding.mainDrawerLayout.isDrawerOpen(GravityCompat.START)){

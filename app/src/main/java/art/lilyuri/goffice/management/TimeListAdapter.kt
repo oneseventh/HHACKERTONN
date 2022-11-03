@@ -1,4 +1,4 @@
-package art.lilyuri.goffice.Admin
+package art.lilyuri.goffice.management
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

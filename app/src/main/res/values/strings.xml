@@ -15,4 +15,6 @@
     <string name="categoryTexi">택시</string>
     <string name="categoryCoffe">커피</string>
     <string name="categoryLunch">점심</string>
+    <string name="registerCompany">회사 등록하기</string>
+    <string name="input_company_name">회사 이름을 입력해주세요</string>
 </resources>

@@ -1,23 +1,23 @@
-package art.lilyuri.goffice
+package art.lilyuri.goffice.management
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import art.lilyuri.goffice.Admin.TimeListAdapter
-import art.lilyuri.goffice.Admin.TimeListData
 import art.lilyuri.goffice.databinding.TimeListBinding
 import art.lilyuri.goffice.retrofit.RetrofitAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TimeList : AppCompatActivity() {
+class AdminActivity : AppCompatActivity() {
 
     private val timeListBinding : TimeListBinding by lazy { TimeListBinding.inflate(layoutInflater) }
     lateinit var timeListAdapter: TimeListAdapter
     var userTimeList = listOf<TimeListData>()
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(timeListBinding.root)
