@@ -31,16 +31,19 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="20dp"
+            android:id="@+id/pg_main"
+            android:paddingHorizontal="2dp"
             android:progressBackgroundTint="@null"
             android:background="@drawable/gage"
             android:indeterminateOnly="false"
-            android:max="100"
+            android:max="900"
             android:progress="25" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosanskr"
+            android:id="@+id/today_text"
             android:text="출근 시간: 7시 30분\n예상 퇴근 시간: 16시 30분"
             android:textColor="@color/small" />
 

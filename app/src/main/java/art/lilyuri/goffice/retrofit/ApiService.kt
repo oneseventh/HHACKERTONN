@@ -1,10 +1,7 @@
 package art.lilyuri.goffice.retrofit
 
+import art.lilyuri.goffice.data.*
 import art.lilyuri.goffice.management.TimeListData
-import art.lilyuri.goffice.data.LoginBody
-import art.lilyuri.goffice.data.MsgData
-import art.lilyuri.goffice.data.SignUpBody
-import art.lilyuri.goffice.data.TokenData
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -15,6 +12,15 @@ interface ApiService {
 
     @POST("/user/login")
     fun login(@Body body: LoginBody): Call<TokenData>
+
+    @POST("/commute/start")
+    fun startWork(@Header("access-token")token: String): Call<MsgData>
+
+    @POST("/commute/end")
+    fun endWork(@Header("access-token")token: String): Call<MsgData>
+
+    @GET("/commute/current")
+    fun getCurrentStartedTime(@Header("access-token")token: String): Call<TimeData>
 
     @GET("")
     fun getWeekTime():Call<List<TimeListData>>
