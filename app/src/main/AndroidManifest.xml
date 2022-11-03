@@ -45,6 +45,8 @@
         <activity android:name=".management.AdminActivity" />
         <activity android:name=".article.ArticleViewActivity"/>
         <activity android:name=".article.ArticleWriteActivity"/>
+        <activity android:name=".register.RegisterCompany"/>
+        <activity android:name=".EditUserInfoController"/>
         <activity android:name=".auth.LoginActivity">
 
         </activity>

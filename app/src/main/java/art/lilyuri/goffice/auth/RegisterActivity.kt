@@ -2,6 +2,7 @@ package art.lilyuri.goffice.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import art.lilyuri.goffice.MainActivity
@@ -11,6 +12,7 @@ import art.lilyuri.goffice.data.SignUpBody
 import art.lilyuri.goffice.data.TokenData
 import art.lilyuri.goffice.databinding.ActivityLoginBinding
 import art.lilyuri.goffice.databinding.ActivityRegisterBinding
+import art.lilyuri.goffice.register.RegisterCompany
 import art.lilyuri.goffice.retrofit.RetrofitAPI
 import art.lilyuri.goffice.sharedpreferences.SharedPreferences
 import retrofit2.Call
@@ -21,6 +23,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.e("Error", "Eroor")
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -64,6 +67,13 @@ class RegisterActivity : AppCompatActivity() {
                 }
             })
 
+        }
+
+        binding.tvError.setOnClickListener {
+            if (binding.tvError.text == "혹시 회사를 등록 하실건가요? 등록하기") {
+                startActivity(Intent(this, RegisterCompany::class.java))
+                finish()
+            }
         }
 
     }

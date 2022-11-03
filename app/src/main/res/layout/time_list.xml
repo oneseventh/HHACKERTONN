@@ -50,16 +50,13 @@
         app:layout_constraintTop_toBottomOf="@+id/dropdown"
         android:paddingHorizontal="35dp">
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:spinnerMode="dropdown" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/timeListRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/time_list_item" />
 
     </LinearLayout>

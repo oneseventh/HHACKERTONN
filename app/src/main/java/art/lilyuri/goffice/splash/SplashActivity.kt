@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import art.lilyuri.goffice.MainActivity
 import art.lilyuri.goffice.auth.LoginActivity
 import art.lilyuri.goffice.databinding.ActivityRegisterBinding
@@ -24,6 +25,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun getToken() {
         token = SharedPreferences.prefs.getString("token", "")
+        Log.e("1", "you're token is: $token")
         if(token == "") {
             val handler = Handler()
             handler.postDelayed(Runnable {

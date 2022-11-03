@@ -1,53 +1,47 @@
 package art.lilyuri.goffice.management
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import art.lilyuri.goffice.data.MemberData
 import art.lilyuri.goffice.databinding.TimeListBinding
 import art.lilyuri.goffice.retrofit.RetrofitAPI
+import art.lilyuri.goffice.sharedpreferences.SharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Objects
 
 class AdminActivity : AppCompatActivity() {
+    private lateinit var binding: TimeListBinding
 
-    private val timeListBinding : TimeListBinding by lazy { TimeListBinding.inflate(layoutInflater) }
-    lateinit var timeListAdapter: TimeListAdapter
-    var userTimeList = listOf<TimeListData>()
+    private lateinit var adapter: TimeListAdapter
+    private val datas = mutableListOf<TimeListData>()
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(timeListBinding.root)
-        timeListAdapter = TimeListAdapter()
+        binding = TimeListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        timeListAdapter.setList(userTimeList)
-        timeListAdapter.notifyDataSetChanged()
-
-        timeListBinding.timeListRecycler.apply {
-            adapter = timeListAdapter
-            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-        }
-
-    }
-
-    private fun initList(){
-        val call = RetrofitAPI.getApiService().getWeekTime()
-        call.enqueue(object: Callback<List<TimeListData>> {
-            override fun onResponse(call: Call<List<TimeListData>>, response: Response<List<TimeListData>>) {
-                Toast.makeText(applicationContext, "Call Success", Toast.LENGTH_SHORT).show()
-                if(response.isSuccessful) {
-                    userTimeList = response.body() ?: listOf()
-                    timeListAdapter.setList(userTimeList)
-                }
+        val call = RetrofitAPI.getApiService().getMemberList(SharedPreferences.prefs.getString("token", ""))
+        call.enqueue(object : Callback<ArrayList<MemberData>> {
+            override fun onResponse(call: Call<ArrayList<MemberData>>, response: Response<ArrayList<MemberData>>) {
+                println(response.body().toString())
             }
 
-            override fun onFailure(call: Call<List<TimeListData>>, t: Throwable) {
-                Toast.makeText(applicationContext, "Call Failed", Toast.LENGTH_SHORT).show()
+            override fun onFailure(call: Call<ArrayList<MemberData>>, t: Throwable) {
+                println(t.message)
             }
+
         })
+
+//        adapter = TimeListAdapter(this)
+//        binding.timeListRecycler.adapter = adapter
+//
+//        datas.apply {
+//            add(TimeListData(userName = "ddd", weekTime = 4))
+//
+//            adapter.datas = datas
+//            adapter.notifyDataSetChanged()
+//        }
     }
 }

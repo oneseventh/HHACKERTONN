@@ -2,6 +2,7 @@ package art.lilyuri.goffice.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 
 object RetrofitAPI {
     private var retrofit: Retrofit? = null;
@@ -10,6 +11,7 @@ object RetrofitAPI {
         if(retrofit == null) {
             retrofit = Retrofit.Builder()
                 .baseUrl(baseUrl)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginBottom="100dp">
+
+            <TextView
+                android:id="@+id/info_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="송지민"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/info_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="songwlals050328@gmail.com"
+                android:gravity="start"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/info_company"
+                android:gravity="start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="마이다스아이티"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/info_team"
+                    android:gravity="start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="개발 1팀"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="#80000000"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/info_department"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="차장"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="#80000000"
+                    android:layout_weight="1"
+                    android:gravity="end"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/edit_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="정보 수정"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@drawable/search_background"
+        android:padding="18dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

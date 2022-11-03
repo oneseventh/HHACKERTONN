@@ -3,10 +3,18 @@ package art.lilyuri.goffice.article
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import art.lilyuri.goffice.data.ArticleAllData
 import art.lilyuri.goffice.databinding.ActivityAllboardBinding
+import art.lilyuri.goffice.retrofit.RetrofitAPI
+import art.lilyuri.goffice.sharedpreferences.SharedPreferences
 import art.lilyuri.goffice.utils.ArticleAdapter
 import art.lilyuri.goffice.utils.ArticleData
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ArticleListAllActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAllboardBinding
@@ -24,11 +32,23 @@ class ArticleListAllActivity : AppCompatActivity() {
         binding.dupal.adapter = adapter
 
         datas.apply {
-            add(ArticleData(idx = 0, articleCategory = 0, articleName = "안녕하세요 ㅋㅋ", articleAuthor = "곽**", articleComment = 0, articleDate = "0000-00-00 00:00:00", articleContent = "dd"))
-            add(ArticleData(idx = 0, articleCategory = 0, articleName = "여러분들라면먹지마세요체질이란게바뀝니다", articleAuthor = "먹**", articleComment = 99, articleDate = "0000-00-00 00:00:00", articleContent = "dd"))
-            add(ArticleData(idx = 0, articleCategory = 0, articleName = "냐아 도키도키시데타~", articleAuthor = "테**", articleComment = 0, articleDate = "0000-00-00 00:00:00", articleContent = "dd"))
-            add(ArticleData(idx = 0, articleCategory = 0, articleName = "그것도모르는건가다음에알려주도록하지", articleAuthor = "켈*", articleComment = 0, articleDate = "0000-00-00 00:00:00", articleContent = "dd"))
+            val cal1 = RetrofitAPI.getApiService().readAllArticle(SharedPreferences.prefs.getString("token", ""))
+            cal1.enqueue(object : Callback<ArrayList<ArticleAllData>> {
+                override fun onResponse(
+                    call: Call<ArrayList<ArticleAllData>>,
+                    response: Response<ArrayList<ArticleAllData>>
+                ) {
+                    datas.apply {
+                        println(response.body()!!.size)
+                    }
+                }
 
+                override fun onFailure(call: Call<ArrayList<ArticleAllData>>, t: Throwable) {
+                    println(t.stackTraceToString())
+                    Toast.makeText(this@ArticleListAllActivity, "목록을 못불러옴", Toast.LENGTH_SHORT).show()
+                }
+
+            })
             adapter.datas = datas
             adapter.notifyDataSetChanged()
         }

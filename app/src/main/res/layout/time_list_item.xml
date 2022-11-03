@@ -18,7 +18,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/timeListName"
+                android:id="@+id/time_list_name"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
             <TextView
-                android:id="@+id/timeListTotal"
+                android:id="@+id/time_list_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr"
