@@ -18,4 +18,6 @@
     <string name="categoryLunch">점심</string>
     <string name="registerCompany">회사 등록하기</string>
     <string name="input_company_name">회사 이름을 입력해주세요</string>
+    <string name="input_article_name">제목을 입력해 주세요.</string>
+    <string name="input_article_content">내용을 입력해 주세요.</string>
 </resources>

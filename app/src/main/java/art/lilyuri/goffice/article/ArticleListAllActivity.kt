@@ -1,6 +1,7 @@
 package art.lilyuri.goffice.article
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import art.lilyuri.goffice.databinding.ActivityAllboardBinding
@@ -30,6 +31,10 @@ class ArticleListAllActivity : AppCompatActivity() {
 
             adapter.datas = datas
             adapter.notifyDataSetChanged()
+        }
+
+        binding.writeButton.setOnClickListener {
+            startActivity(Intent(this, ArticleWriteActivity::class.java))
         }
     }
 }

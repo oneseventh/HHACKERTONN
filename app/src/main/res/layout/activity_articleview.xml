@@ -81,7 +81,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:background="@drawable/button"
-            android:backgroundTint="@color/info"
+            android:backgroundTint="#49BCFF"
             android:fontFamily="@font/notosanskrbold"
             android:stateListAnimator="@null"
             android:text="작성"

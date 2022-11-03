@@ -23,7 +23,7 @@ class ArticleViewActivity : AppCompatActivity() {
         val comment = intent.getSerializableExtra("comment") as Int
 
         binding.articleN.text = name
-        binding.articleN.text = author
+        binding.articleA.text = author
         binding.articleC.text = content
 
     }

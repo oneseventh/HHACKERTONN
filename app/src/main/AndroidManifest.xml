@@ -42,8 +42,9 @@
         </activity>
         <activity android:name=".article.ArticleListAllActivity" />
         <activity android:name=".article.ArticleListActivity" />
-        <activity android:name=".management.TimeList" />
-
+        <activity android:name=".management.AdminActivity" />
+        <activity android:name=".article.ArticleViewActivity"/>
+        <activity android:name=".article.ArticleWriteActivity"/>
         <activity android:name=".auth.LoginActivity">
 
         </activity>
