@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="#D6F0FF"
+    app:cardCornerRadius="20dp"
+    android:layout_marginBottom="25dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/timeListName"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:fontFamily="@font/notosanskrbold"
+                android:text="사원1"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/timeListTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr"
+                android:text="40시간 중 20시간 근무"
+                android:paddingEnd="20dp"
+                android:gravity="right"
+                android:textColor="@color/small"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/TimeListProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#000000"
+            android:progressBackgroundTint="#A3D278"/>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

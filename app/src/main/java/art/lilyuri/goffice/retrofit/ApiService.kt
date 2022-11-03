@@ -1,5 +1,6 @@
 package art.lilyuri.goffice.retrofit
 
+import art.lilyuri.goffice.Admin.TimeListData
 import art.lilyuri.goffice.data.LoginBody
 import art.lilyuri.goffice.data.SignUpBody
 import art.lilyuri.goffice.data.TokenData
@@ -12,4 +13,7 @@ interface ApiService {
 
     @POST("/auth/local")
     fun login(@Body body: LoginBody): Call<TokenData>
+
+    @GET("")
+    fun getWeekTime():Call<List<TimeListData>>
 }
