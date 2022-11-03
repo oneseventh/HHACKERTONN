@@ -30,6 +30,9 @@
         <activity android:name=".ArticleListAllActivity">
             
         </activity>
+        <activity android:name=".auth.LoginActivity">
+
+        </activity>
     </application>
 
 </manifest>
