@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import art.lilyuri.goffice.data.ArticleAllData
+import art.lilyuri.goffice.data.MsgPostData
 import art.lilyuri.goffice.databinding.ActivityAllboardBinding
 import art.lilyuri.goffice.retrofit.RetrofitAPI
 import art.lilyuri.goffice.sharedpreferences.SharedPreferences
@@ -33,17 +34,19 @@ class ArticleListAllActivity : AppCompatActivity() {
 
         datas.apply {
             val cal1 = RetrofitAPI.getApiService().readAllArticle(SharedPreferences.prefs.getString("token", ""))
-            cal1.enqueue(object : Callback<ArrayList<ArticleAllData>> {
+            cal1.enqueue(object : Callback<MsgPostData> {
                 override fun onResponse(
-                    call: Call<ArrayList<ArticleAllData>>,
-                    response: Response<ArrayList<ArticleAllData>>
+                    call: Call<MsgPostData>,
+                    response: Response<MsgPostData>
                 ) {
                     datas.apply {
-                        println(response.body()!!.size)
+                        //println(response.body()!!.size)
+                        //response.body()!!.post[0] 안에 리스트 존재
+                        println(response.body()!!.post[0].toString())
                     }
                 }
 
-                override fun onFailure(call: Call<ArrayList<ArticleAllData>>, t: Throwable) {
+                override fun onFailure(call: Call<MsgPostData>, t: Throwable) {
                     println(t.stackTraceToString())
                     Toast.makeText(this@ArticleListAllActivity, "목록을 못불러옴", Toast.LENGTH_SHORT).show()
                 }

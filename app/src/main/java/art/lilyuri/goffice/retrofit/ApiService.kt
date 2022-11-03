@@ -29,7 +29,7 @@ interface ApiService {
     fun readArticle(@Path("number") number : Int, @Header("access-token") token: String?): Call<ArticleData>
 
     @GET("/post/")
-    fun readAllArticle(@Header("access-token") token: String?): Call<ArrayList<ArticleAllData>>
+    fun readAllArticle(@Header("access-token") token: String?): Call<MsgPostData>
 
     @GET("/admin/member")
     fun getMemberList(@Header("access-token") token: String?): Call<MembersData>
