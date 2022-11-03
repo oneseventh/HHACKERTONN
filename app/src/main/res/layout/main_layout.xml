@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/istool"
+        layout="@layout/main_toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/helloMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskrbold"
+            android:text="%s님\n오늘도 활기찬 출근해볼까요!?"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:progressBackgroundTint="@null"
+            android:background="@drawable/gage"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:progress="25" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr"
+            android:text="출근 시간: 7시 30분\n예상 퇴근 시간: 16시 30분"
+            android:textColor="@color/small" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/notosanskrbold"
+            android:text="쉬는 것도 중요한 거 아시죠!?" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/info"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="20dp"
+                        android:fontFamily="@font/notosanskrbold"
+                        android:text="8시간 근무"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/notosanskrbold"
+                        android:text="출근: 10시 퇴근: 19시"
+                        android:textColor="@color/small"
+                        android:textSize="12sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr"
+                        android:text="그저께"
+                        android:paddingEnd="20dp"
+                        android:gravity="right"
+                        android:textColor="@color/small"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:progressBackgroundTint="@null"
+                    android:background="@drawable/gage"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:indeterminateOnly="false"
+                    android:max="100"
+                    android:progress="25" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/info"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="20dp"
+                        android:fontFamily="@font/notosanskrbold"
+                        android:text="8시간 근무"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/notosanskrbold"
+                        android:text="출근: 10시 퇴근: 19시"
+                        android:textColor="@color/small"
+                        android:textSize="12sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr"
+                        android:text="어제"
+                        android:paddingEnd="20dp"
+                        android:gravity="right"
+                        android:textColor="@color/small"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:progressBackgroundTint="@null"
+                    android:background="@drawable/gage"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:indeterminateOnly="false"
+                    android:max="100"
+                    android:progress="25" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/beforeWork"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:visibility="visible">
+
+            <android.widget.Button
+                android:id="@+id/workButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button"
+                android:backgroundTint="@color/success"
+                android:fontFamily="@font/notosanskrbold"
+                android:stateListAnimator="@null"
+                android:text="출근할게요!"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/processWork"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <android.widget.Button
+                android:id="@+id/restButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:backgroundTint="@color/danger"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/notosanskrbold"
+                android:stateListAnimator="@null"
+                android:text="쉬었다가 할게요!"
+                android:textColor="@color/white" />
+
+            <android.widget.Button
+                android:id="@+id/escapeButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:backgroundTint="@color/primary"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/notosanskrbold"
+                android:stateListAnimator="@null"
+                android:text="퇴근할게요!"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

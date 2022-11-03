@@ -3,15 +3,22 @@ package art.lilyuri.goffice
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import art.lilyuri.goffice.article.ArticleListAllActivity
 import art.lilyuri.goffice.databinding.ActivityBoardlistBinding
+import art.lilyuri.goffice.databinding.ActivityMainBinding
 import art.lilyuri.goffice.utils.ArticleAdapter
 import art.lilyuri.goffice.utils.ArticleData
+import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener {
 
-    private lateinit var binding: ActivityBoardlistBinding
+    private lateinit var binding: ActivityMainBinding
 
     lateinit var adapter: ArticleAdapter
     val datas = mutableListOf<ArticleData>()
@@ -21,25 +28,36 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityBoardlistBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.mainmain.istool.mainLayoutToolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        binding.mainNavigationView.setNavigationItemSelectedListener(this)
 
-        adapter = ArticleAdapter(this)
-        binding.dupal.adapter = adapter
-
-        datas.apply {
-            add(ArticleData(idx = 0, articleCategory = 0, articleName = "안녕하세요 ㅋㅋ", articleAuthor = "곽**", articleComment = 0, articleDate = "0000-00-00 00:00:00", articleContent = "dd"))
-            add(ArticleData(idx = 0, articleCategory = 0, articleName = "여러분들라면먹지마세요체질이란게바뀝니다", articleAuthor = "먹**", articleComment = 99, articleDate = "0000-00-00 00:00:00", articleContent = "dd"))
-            add(ArticleData(idx = 0, articleCategory = 0, articleName = "냐아 도키도키시데타~", articleAuthor = "테**", articleComment = 0, articleDate = "0000-00-00 00:00:00", articleContent = "dd"))
-            add(ArticleData(idx = 0, articleCategory = 0, articleName = "그것도모르는건가다음에알려주도록하지", articleAuthor = "켈*", articleComment = 0, articleDate = "0000-00-00 00:00:00", articleContent = "dd"))
-
-            adapter.datas = datas
-            adapter.notifyDataSetChanged()
+        binding.mainmain.istool.toolMenu.setOnClickListener {
+            binding.mainDrawerLayout.openDrawer(GravityCompat.END)
         }
+    }
 
-        binding.articleView.setOnClickListener {
-            val nextIntent = Intent(this, ArticleListAllActivity::class.java)
-            startActivity(nextIntent)
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val intent = Intent(this, ArticleListAllActivity::class.java)
+        when(item.itemId){
+            R.id.item1-> Toast.makeText(this,"account clicked",Toast.LENGTH_SHORT).show()
+            R.id.item2-> Toast.makeText(this,"item2 clicked",Toast.LENGTH_SHORT).show()
+            R.id.item3-> Toast.makeText(this,"item3 clicked",Toast.LENGTH_SHORT).show()
+            R.id.item5 -> startActivity(intent)
+        }
+        return false
+    }
+
+
+    override fun onBackPressed() { //뒤로가기 처리
+        if(binding.mainDrawerLayout.isDrawerOpen(GravityCompat.START)){
+            binding.mainDrawerLayout.closeDrawers()
+            // 테스트를 위해 뒤로가기 버튼시 Toast 메시지
+            Toast.makeText(this,"back btn clicked", Toast.LENGTH_SHORT).show()
+        } else{
+            super.onBackPressed()
         }
     }
 
