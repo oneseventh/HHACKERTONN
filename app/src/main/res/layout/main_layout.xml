@@ -198,8 +198,9 @@
                 android:backgroundTint="@color/success"
                 android:fontFamily="@font/notosanskrbold"
                 android:stateListAnimator="@null"
-                android:text="출근할게요!"
+                android:text="출근할게요."
                 android:textColor="@color/white" />
+
         </LinearLayout>
 
         <LinearLayout
