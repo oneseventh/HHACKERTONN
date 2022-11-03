@@ -8,10 +8,10 @@
     tools:context=".auth.RegisterActivity">
 
     <ImageView
-        android:layout_width="180dp"
+        android:layout_width="130dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="15dp"
-        android:layout_height="180dp"
+        android:layout_height="130dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:src="@drawable/logo"
@@ -58,6 +58,29 @@
             android:textSize="13sp"
             android:fontFamily="@font/notosanskr"
             android:inputType="textPassword"
+            android:background="@color/inputColor"
+            tools:ignore="RtlSymmetry"
+            android:autofillHints="password" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="35dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="20dp"
+            android:hint="@string/input_phone"
+            android:id="@+id/et_phone"
+            android:textColor="@color/inputText"
+            android:textSize="13sp"
+            android:fontFamily="@font/notosanskr"
+            android:inputType="phone"
             android:background="@color/inputColor"
             tools:ignore="RtlSymmetry"
             android:autofillHints="password" />

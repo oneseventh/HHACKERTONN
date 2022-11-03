@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import art.lilyuri.goffice.MainActivity
+import art.lilyuri.goffice.data.LoginBody
+import art.lilyuri.goffice.data.MsgData
 import art.lilyuri.goffice.data.SignUpBody
 import art.lilyuri.goffice.data.TokenData
 import art.lilyuri.goffice.databinding.ActivityLoginBinding
@@ -29,24 +31,38 @@ class RegisterActivity : AppCompatActivity() {
             val company: String = binding.etCompany.text.toString()
             val department: String = binding.etDepartment.text.toString()
             val position: String = binding.etPosition.text.toString()
+            val phone: String = binding.etPhone.text.toString()
+            val name: String = binding.etName.text.toString()
+            val data = SignUpBody(email, password,company,department,position,name,phone)
+            val call = RetrofitAPI.getApiService().signUp(data)
+            call.enqueue(object : Callback<MsgData> {
+                override fun onResponse(call: Call<MsgData>, response: Response<MsgData>) {
+                    if(response.isSuccessful) {
+                        val call2 = RetrofitAPI.getApiService().login(LoginBody(email,password))
+                        call2.enqueue(object : Callback<TokenData> {
+                            override fun onResponse(
+                                call: Call<TokenData>,
+                                response: Response<TokenData>
+                            ) {
+                                SharedPreferences.prefs.setString("token", response.body()!!.accessToken)
+                                goMain();
+                            }
 
-//            val data = SignUpBody(email, password, company, department, position)
-//            val call = RetrofitAPI.getApiService().signUp(data)
-//            call.enqueue(object : Callback<TokenData> {
-//                override fun onResponse(call: Call<TokenData>, response: Response<TokenData>) {
-//                    if(response.isSuccessful) {
-//                        SharedPreferences.prefs.setString("token", response.body()!!.token)
-//                        goMain();
-//                    } else {
-//                        showErrorMsg("로그인 실패")
-//                    }
-//
-//                }
-//
-//                override fun onFailure(call: Call<TokenData>, t: Throwable) {
-//                    showErrorMsg("로그인 실패")
-//                }
-//            } )
+                            override fun onFailure(call: Call<TokenData>, t: Throwable) {
+                                showErrorMsg("로그인 실패")
+                            }
+
+                        })
+                    } else {
+                        showErrorMsg("로그인 실패")
+                    }
+
+                }
+
+                override fun onFailure(call: Call<MsgData>, t: Throwable) {
+                    showErrorMsg("로그인 실패")
+                }
+            } )
 
         }
 
