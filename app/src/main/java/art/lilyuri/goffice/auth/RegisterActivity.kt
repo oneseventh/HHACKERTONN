@@ -1,10 +1,19 @@
 package art.lilyuri.goffice.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import art.lilyuri.goffice.MainActivity
+import art.lilyuri.goffice.data.SignUpBody
+import art.lilyuri.goffice.data.TokenData
 import art.lilyuri.goffice.databinding.ActivityLoginBinding
 import art.lilyuri.goffice.databinding.ActivityRegisterBinding
+import art.lilyuri.goffice.retrofit.RetrofitAPI
+import art.lilyuri.goffice.sharedpreferences.SharedPreferences
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -21,10 +30,33 @@ class RegisterActivity : AppCompatActivity() {
             val department: String = binding.etDepartment.text.toString()
             val position: String = binding.etPosition.text.toString()
 
-            //Request
+//            val data = SignUpBody(email, password, company, department, position)
+//            val call = RetrofitAPI.getApiService().signUp(data)
+//            call.enqueue(object : Callback<TokenData> {
+//                override fun onResponse(call: Call<TokenData>, response: Response<TokenData>) {
+//                    if(response.isSuccessful) {
+//                        SharedPreferences.prefs.setString("token", response.body()!!.token)
+//                        goMain();
+//                    } else {
+//                        showErrorMsg("로그인 실패")
+//                    }
+//
+//                }
+//
+//                override fun onFailure(call: Call<TokenData>, t: Throwable) {
+//                    showErrorMsg("로그인 실패")
+//                }
+//            } )
+
         }
 
 
+
+    }
+
+    fun goMain() {
+        startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
+        finish()
     }
 
     fun showErrorMsg(msg: String) {
