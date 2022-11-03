@@ -8,6 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="inputColor">#EAF7FF</color>
-    <color name="buttonColor">#78CEFF</color>
     <color name="inputText">#61000000</color>
+    <color name="hintText">#D26E6E</color>
+    <color name="success">#A3D278</color>
+    <color name="danger">#DB8383</color>
+    <color name="primary">#78CEFF</color>
+    <color name="info">#D6F0FF</color>
+    <color name="small">#595959</color>
 </resources>

@@ -3,4 +3,11 @@
     <string name="app_logo">App logo</string>
     <string name="input_email">이메일을 입력해주세요.</string>
     <string name="input_password">비밀번호를 입력해주세요.</string>
+    <string name="login">로그인</string>
+    <string name="input_name">이름을 입력해주세요.</string>
+    <string name="input_company">회사를 입력해주세요.</string>
+    <string name="input_depart">부서 입력</string>
+    <string name="input_rank">직급 입력</string>
+    <string name="register">회원가입</string>
+    <string name="work">출근할게요!</string>
 </resources>
