@@ -34,6 +34,10 @@ class ArticleListActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
+        binding.writeButton.setOnClickListener {
+            startActivity(Intent(this, ArticleWriteActivity::class.java))
+        }
+
         binding.articleView.setOnClickListener {
             val intent = Intent(this, ArticleListAllActivity::class.java)
             startActivity(intent)

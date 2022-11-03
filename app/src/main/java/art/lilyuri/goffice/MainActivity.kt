@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import art.lilyuri.goffice.article.ArticleListActivity
 import art.lilyuri.goffice.article.ArticleListAllActivity
 import art.lilyuri.goffice.data.MsgData
 import art.lilyuri.goffice.data.TimeData
@@ -16,6 +17,7 @@ import art.lilyuri.goffice.databinding.ActivityMainBinding
 import art.lilyuri.goffice.management.TimeList
 import art.lilyuri.goffice.retrofit.RetrofitAPI
 import art.lilyuri.goffice.sharedpreferences.SharedPreferences
+import art.lilyuri.goffice.management.AdminActivity
 import art.lilyuri.goffice.utils.ArticleAdapter
 import art.lilyuri.goffice.utils.ArticleData
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
@@ -232,11 +234,11 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener {
 
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val intent = Intent(this, ArticleListAllActivity::class.java)
+        val intent = Intent(this, ArticleListActivity::class.java)
         when(item.itemId){
             R.id.item1-> Toast.makeText(this,"account clicked",Toast.LENGTH_SHORT).show()
 //            R.id.item2-> Chuno().test(this)
-            R.id.item3-> startActivity(Intent(this, TimeList::class.java))
+            R.id.item3-> startActivity(Intent(this, AdminActivity::class.java))
             R.id.item5 -> startActivity(intent)
         }
         return false
