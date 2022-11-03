@@ -98,5 +98,24 @@
                 android:backgroundTint="@color/primary"
                 android:stateListAnimator="@null" />
         </androidx.cardview.widget.CardView>
+
     </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        app:cardElevation="0dp"
+        android:background="#000000"
+        app:cardCornerRadius="35dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:id="@+id/tv_reg"
+            android:paddingStart="40dp"/>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>

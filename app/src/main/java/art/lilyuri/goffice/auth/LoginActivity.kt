@@ -5,7 +5,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import art.lilyuri.goffice.MainActivity
+import art.lilyuri.goffice.data.LoginBody
+import art.lilyuri.goffice.data.TokenData
 import art.lilyuri.goffice.databinding.ActivityLoginBinding
+import art.lilyuri.goffice.retrofit.RetrofitAPI
+import art.lilyuri.goffice.sharedpreferences.SharedPreferences
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -13,6 +20,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.tvReg.setOnClickListener {
+            startActivity(Intent(this@LoginActivity,RegisterActivity::class.java))
+            finish()
+        }
 
         binding.btnLogin.setOnClickListener {
             val email: String = binding.etEmail.text.toString()
