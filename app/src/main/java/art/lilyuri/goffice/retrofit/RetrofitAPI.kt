@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitAPI {
     private var retrofit: Retrofit? = null;
-    private const val baseUrl = "https://goffice-midas.herokuapp.com/";
+    private const val baseUrl = "https://goffice-back.herokuapp.com/";
     private fun getRetrofit(): Retrofit {
         if(retrofit == null) {
             retrofit = Retrofit.Builder()

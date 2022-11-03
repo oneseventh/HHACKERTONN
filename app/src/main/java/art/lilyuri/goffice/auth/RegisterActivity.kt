@@ -6,8 +6,14 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import art.lilyuri.goffice.MainActivity
 import art.lilyuri.goffice.data.SignUpBody
+import art.lilyuri.goffice.data.TokenData
+import art.lilyuri.goffice.databinding.ActivityLoginBinding
 import art.lilyuri.goffice.databinding.ActivityRegisterBinding
 import art.lilyuri.goffice.retrofit.RetrofitAPI
+import art.lilyuri.goffice.sharedpreferences.SharedPreferences
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -17,11 +23,6 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvError.setOnClickListener {
-            startActivity(Intent(this@RegisterActivity, RegisterActivity::class.java))
-            finish()
-        }
-
         binding.btnRegister.setOnClickListener {
             val email: String = binding.etEmail.text.toString()
             val password: String = binding.etPassword.text.toString()
@@ -29,8 +30,8 @@ class RegisterActivity : AppCompatActivity() {
             val department: String = binding.etDepartment.text.toString()
             val position: String = binding.etPosition.text.toString()
 
-            val data = SignUpBody(email, password, company, department, position)
-            val call = RetrofitAPI.getApiService().signUp(data)
+//            val data = SignUpBody(email, password, company, department, position)
+//            val call = RetrofitAPI.getApiService().signUp(data)
 //            call.enqueue(object : Callback<TokenData> {
 //                override fun onResponse(call: Call<TokenData>, response: Response<TokenData>) {
 //                    if(response.isSuccessful) {

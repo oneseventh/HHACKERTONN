@@ -1,5 +1,6 @@
 package art.lilyuri.goffice.data
 
 data class TokenData(
-    var token: String
+    var message: String,
+    var accessToken: String
 )

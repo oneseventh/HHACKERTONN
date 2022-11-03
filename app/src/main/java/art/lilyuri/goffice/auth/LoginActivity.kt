@@ -18,23 +18,23 @@ class LoginActivity : AppCompatActivity() {
             val email: String = binding.etEmail.text.toString()
             val password: String = binding.etPassword.text.toString()
             //Request
-//            val data = LoginBody(email, password)
-//            val call = RetrofitAPI.getApiService().login(data)
-//            call.enqueue(object : Callback<TokenData> {
-//                override fun onResponse(call: Call<TokenData>, response: Response<TokenData>) {
-//                    if(response.isSuccessful) {
-//                        SharedPreferences.prefs.setString("token", response.body()!!.token)
-//                        goMain()
-//                    } else {
-//                        showErrorMsg("로그인 실패")
-//                    }
-//
-//                }
-//
-//                override fun onFailure(call: Call<TokenData>, t: Throwable) {
-//                    showErrorMsg("로그인 실패")
-//                }
-//            } )
+            val data = LoginBody(email, password)
+            val call = RetrofitAPI.getApiService().login(data)
+            call.enqueue(object : Callback<TokenData> {
+                override fun onResponse(call: Call<TokenData>, response: Response<TokenData>) {
+                    if(response.isSuccessful) {
+                        SharedPreferences.prefs.setString("token", response.body()!!.accessToken)
+                        goMain()
+                    } else {
+                        showErrorMsg("로그인 실패")
+                    }
+
+                }
+
+                override fun onFailure(call: Call<TokenData>, t: Throwable) {
+                    showErrorMsg("로그인 실패")
+                }
+            } )
 
         }
 
