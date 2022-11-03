@@ -1,27 +1,23 @@
 package art.lilyuri.goffice
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import art.lilyuri.goffice.databinding.ActivityAllboardBinding
 import art.lilyuri.goffice.databinding.ActivityBoardlistBinding
 import art.lilyuri.goffice.utils.ArticleAdapter
 import art.lilyuri.goffice.utils.ArticleData
-import java.util.*
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityBoardlistBinding
+class ArticleListAllActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAllboardBinding
 
     lateinit var adapter: ArticleAdapter
     val datas = mutableListOf<ArticleData>()
 
-    private val ment: List<String> = listOf("현재 이번주 연장 근무 시간은 0시간 입니다", "스트레칭은 필수!", "한국인은 밥심!!", "과도한 업무는 건강에 좋지 않아요!")
-
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityBoardlistBinding.inflate(layoutInflater)
+        binding = ActivityAllboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         adapter = ArticleAdapter(this)
@@ -36,15 +32,5 @@ class MainActivity : AppCompatActivity() {
             adapter.datas = datas
             adapter.notifyDataSetChanged()
         }
-
-        binding.articleView.setOnClickListener {
-            val nextIntent = Intent(this, ArticleListAllActivity::class.java)
-            startActivity(nextIntent)
-        }
-    }
-
-    private fun <T> List<T>.random() : T {
-        val random = Random().nextInt((size))
-        return get(random)
     }
 }

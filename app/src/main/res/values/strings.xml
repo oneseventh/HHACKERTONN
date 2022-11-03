@@ -10,4 +10,9 @@
     <string name="input_rank">직급 입력</string>
     <string name="register">회원가입</string>
     <string name="work">출근할게요!</string>
+    <string name="categoryCar">카플</string>
+    <string name="categoryOther">기타</string>
+    <string name="categoryTexi">택시</string>
+    <string name="categoryCoffe">커피</string>
+    <string name="categoryLunch">점심</string>
 </resources>

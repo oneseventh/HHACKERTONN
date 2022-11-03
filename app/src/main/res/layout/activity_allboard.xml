@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskrbold"
+            android:text="🎉 전체 게시글"
+            android:textSize="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/categoryLunch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/notosanskrbold"
+                    android:textSize="12sp"
+                    android:button="@null"
+                    android:background="@drawable/radio_button"
+                    android:text="@string/categoryLunch"/>
+                <RadioButton
+                    android:id="@+id/categoryCoffee"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/notosanskrbold"
+                    android:textSize="12sp"
+                    android:button="@null"
+                    android:background="@drawable/radio_button"
+                    android:text="@string/categoryCoffe"/>
+                <RadioButton
+                    android:id="@+id/categoryTexi"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/notosanskrbold"
+                    android:textSize="12sp"
+                    android:button="@null"
+                    android:background="@drawable/radio_button"
+                    android:text="@string/categoryTexi"/>
+                <RadioButton
+                    android:id="@+id/categoryCar"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/notosanskrbold"
+                    android:textSize="12sp"
+                    android:button="@null"
+                    android:background="@drawable/radio_button"
+                    android:text="@string/categoryCar"/>
+                <RadioButton
+                    android:id="@+id/categoryOther"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/notosanskrbold"
+                    android:textSize="12sp"
+                    android:button="@null"
+                    android:background="@drawable/radio_button"
+                    android:text="@string/categoryOther"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dupal"
+            android:layout_width="match_parent"
+            android:layout_height="513dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/boardview">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+        <android.widget.Button
+            android:id="@+id/writeButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/button"
+            android:backgroundTint="@color/success"
+            android:fontFamily="@font/notosanskrbold"
+            android:stateListAnimator="@null"
+            android:text="글 쓰기"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>
